@@ -1,5 +1,4 @@
-import ipaddress
-import re
+import socket
 
 def target():
     ip = input ("Enter IP or FQDN: ")
