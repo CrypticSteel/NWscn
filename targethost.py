@@ -1,5 +1,7 @@
 import socket
 
+trgtlst = []
+
 def ScanPort(target, port):
     
     try:
@@ -15,8 +17,11 @@ def ScanPort(target, port):
         #Clean Shutdown
             s.shutdown(socket.SHUT_RDWR)
 
-            return result == 0
-
+            if result == 0:
+                return "This port is open!"
+            else:
+                return "This port is not open." 
+        
     except socket.timeout:
         return False
     except socket.error:
