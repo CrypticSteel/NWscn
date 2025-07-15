@@ -26,5 +26,7 @@ def ScanPort(target, port):
     except socket.error:
         return False
 #target()
+def portscanner():
+    print(ScanPort(input("Enter Target: "), int(input("Enter Port: "))))
 
-print(ScanPort("scanme.nmap.org", 80))
+portscanner()
