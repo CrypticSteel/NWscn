@@ -1,9 +1,5 @@
 import socket
 
-###def target():
-    #trgt = input ("Enter IP or name: ")
-    #print(f"Scanning: {trgt}")
-
 def ScanPort(target, port):
     
     try:
@@ -25,7 +21,8 @@ def ScanPort(target, port):
         return False
     except socket.error:
         return False
-#target()
+#create function to allow users to enter target and IP
+
 def portscanner():
     print(ScanPort(input("Enter Target: "), int(input("Enter Port: "))))
 
