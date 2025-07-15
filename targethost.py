@@ -23,9 +23,9 @@ def ScanPort(target, port):
                 return "This port is not open." 
         
     except socket.timeout:
-        return False
+        return "Connection Time out"
     except socket.error:
-        return False
+        return "Port Unreachable"
 #create function to allow users to enter target and IP
 
 def portscanner():
