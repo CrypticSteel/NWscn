@@ -21,14 +21,30 @@ def ScanPort(target, port):
                 return "This port is open!"
             else:
                 return "This port is not open." 
-        
+     #exception handling   
     except socket.timeout:
         return "Connection Time out"
     except socket.error:
         return "Port Unreachable"
-#create function to allow users to enter target and IP
+
+#function to run scanner and allow users to enter target machine and port
 
 def portscanner():
-    print(ScanPort(input("Enter Target: "), int(input("Enter Port: "))))
+#lists for storing input and cleaned input
+    
+    uIPlst = []
+    tIPlst = []
+
+#Prompt for input, clean and store in finalized list
+
+    uIPlst.append(input("Enter IP (Seperate by Commas for multiples: "))
+
+    for i in uIPlst[0].split(','):
+        tIPlst.append(i.strip())
+
+#Prompt for port number and scan
+    
+    for t in tIPlst:
+        print("For", t, ScanPort(t, int(input("Enter Port Number: "))))
 
 portscanner()
