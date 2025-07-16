@@ -1,7 +1,5 @@
 import socket
 
-trgtlst = []
-
 def ScanPort(target, port):
     
     try:
