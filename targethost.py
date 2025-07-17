@@ -16,14 +16,14 @@ def ScanPort(target, port):
             s.shutdown(socket.SHUT_RDWR)
 
             if result == 0:
-                return "This port is open!"
+                return "Open!"
             else:
-                return "This port is not open." 
+                return "Closed." 
      #exception handling   
     except socket.timeout:
         return "Connection Time out"
     except socket.error:
-        return "Port Unreachable"
+        return "Unreachable"
 
 #function to run scanner and allow users to enter target machine and port
 
@@ -48,8 +48,10 @@ def portscanner():
         tPrlst.append(p.strip())
 
     for ip in tIPlst:
+        print("results for", ip + ":")
+        
         for prt in tPrlst:
-            print("results for", ip,", Port:", prt,"--->",ScanPort(ip,int(prt)))
+            print(" Port:", prt,"--->",ScanPort(ip,int(prt)))
 
 #Prompt for port number and scan
     
