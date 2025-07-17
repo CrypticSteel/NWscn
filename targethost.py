@@ -32,17 +32,28 @@ def portscanner():
     
     uIPlst = []
     tIPlst = []
+    uPrlst = []
+    tPrlst = []
 
-#Prompt for input, clean and store in finalized list
+#Prompt for input, clean and store in finalized lists
 
-    uIPlst.append(input("Enter IP (Seperate by Commas for multiples: "))
+    uIPlst.append(input("Enter IP (Seperate by Commas for multiples): "))
 
     for i in uIPlst[0].split(','):
         tIPlst.append(i.strip())
 
+    uPrlst.append(input("Enter Port(seperate by Commas for multiples): "))
+
+    for p in uPrlst[0].split(','):
+        tPrlst.append(p.strip())
+
+    for ip in tIPlst:
+        for prt in tPrlst:
+            print("results for", ip,", Port:", prt,"--->",ScanPort(ip,int(prt)))
+
 #Prompt for port number and scan
     
-    for t in tIPlst:
-        print("For", t, ScanPort(t, int(input("Enter Port Number: "))))
+    #for t in tIPlst:
+        #print("For", t, ScanPort(t, int(input("Enter Port Number: "))))
 
 portscanner()
